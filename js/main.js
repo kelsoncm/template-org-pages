@@ -13,12 +13,13 @@
     return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
   }
 
+  // O botão mostra a ação que executa: no tema escuro oferece o claro, e vice-versa.
   function render() {
     var buttons = document.querySelectorAll('[data-theme-toggle]');
+    var dark = current() === 'dark';
     for (var i = 0; i < buttons.length; i++) {
-      var dark = current() === 'dark';
-      buttons[i].textContent = dark ? buttons[i].getAttribute('data-label-dark') : buttons[i].getAttribute('data-label-light');
-      buttons[i].setAttribute('aria-pressed', dark ? 'true' : 'false');
+      var label = buttons[i].getAttribute(dark ? 'data-label-to-light' : 'data-label-to-dark');
+      if (label) { buttons[i].textContent = label; } // sem o atributo (HTML antigo em cache), mantém o texto atual
     }
   }
 
