@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{TITLE}}</title>
+  <meta name="description" content="{{TAGLINE_PT}}" />
+  <meta property="og:title" content="{{TITLE}}" />
+  <meta property="og:description" content="{{TAGLINE_PT}}" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://{{OWNER}}.github.io/pt-br/" />
+  <link rel="canonical" href="https://{{OWNER}}.github.io/pt-br/" />
+  <link rel="alternate" hreflang="pt-BR" href="https://{{OWNER}}.github.io/pt-br/" />
+  <link rel="alternate" hreflang="en" href="https://{{OWNER}}.github.io/en/" />
+  <link rel="alternate" hreflang="x-default" href="https://{{OWNER}}.github.io/en/" />
+  <link rel="icon" href="/img/logo.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <script src="/js/main.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <header class="site-header">
+    <div class="container nav">
+      <a href="/pt-br/" class="brand">
+        <img src="/img/logo.svg" alt="" width="32" height="32" />
+        <span>{{TITLE}}</span>
+      </a>
+      <nav class="nav-actions" aria-label="Ações">
+        <a class="btn btn-ghost" href="/en/" hreflang="en" lang="en">English</a>
+        <button class="btn btn-ghost" type="button" data-theme-toggle data-label-light="Claro" data-label-dark="Escuro">Tema</button>
+        <a class="btn btn-ghost" href="https://github.com/{{OWNER}}" rel="noopener">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo" class="container">
+    <section class="hero">
+      <p class="pill">Open source &middot; Comunitário</p>
+      <h1>{{TITLE}}</h1>
+      <p class="lead">{{TAGLINE_PT}}</p>
+      <div class="cta">
+        <a class="btn btn-primary" href="#projetos">Ver os projetos</a>
+        <a class="btn btn-ghost" href="#contribuir">Como contribuir</a>
+      </div>
+    </section>
+
+    <section id="projetos" aria-labelledby="titulo-projetos">
+      <h2 id="titulo-projetos">Projetos</h2>
+      <div class="grid">
+        <!-- Um <article class="card"> por repositório. -->
+        <article class="card">
+          <h3>Projeto exemplo</h3>
+          <p>Descreva em uma ou duas frases o que o projeto resolve.</p>
+          <p class="card-links">
+            <a href="https://github.com/{{OWNER}}">Repositório</a>
+            <a href="https://{{OWNER}}.github.io/">Documentação</a>
+          </p>
+        </article>
+        <article class="card">
+          <h3>Outro projeto</h3>
+          <p>Troque estes cartões pelos repositórios da organização.</p>
+          <p class="card-links">
+            <a href="https://github.com/{{OWNER}}">Repositório</a>
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section id="contribuir" aria-labelledby="titulo-contribuir">
+      <h2 id="titulo-contribuir">Como contribuir</h2>
+      <p>Relatos de problemas, sugestões e pull requests são bem-vindos. Leia o
+        <a href="https://github.com/{{OWNER}}/.github/blob/main/CONTRIBUTING.md">guia de contribuição</a> e o
+        <a href="https://github.com/{{OWNER}}/.github/blob/main/CODE_OF_CONDUCT.md">código de conduta</a>.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; {{YEAR}} {{TITLE}} &middot; <a href="https://github.com/{{OWNER}}">github.com/{{OWNER}}</a></p>
+    </div>
+  </footer>
+</body>
+</html>

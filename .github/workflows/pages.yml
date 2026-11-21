@@ -1,0 +1,48 @@
+name: Deploy Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Check for leftover template placeholders
+        if: github.repository != 'kelsoncm/template-org-pages'
+        run: |
+          if grep -rn --include='*.html' '{{[A-Z_]*}}' .; then
+            echo "::error::Placeholders left in the HTML: run template_init.py"
+            exit 1
+          fi
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: .
+
+  deploy:
+    # The template repository has no Pages site; repositories generated from it deploy normally.
+    if: github.repository != 'kelsoncm/template-org-pages'
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5
